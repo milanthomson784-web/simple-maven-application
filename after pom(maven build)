@@ -1,0 +1,37 @@
+
+
+
+
+THEN OPEN VSCODE:
+1. CLONE YOUR GIT REPOSITORY IN VSCODE
+2. In the TERMINAL type command: mvn clean test
+
+
+pipeline script in jenkins for maven
+
+pipeline {
+agent any
+tools {
+maven 'M3'
+}
+stages {
+stage('Checkout Git') {
+steps {
+git branch: 'main',
+url: 'https://github.com/balaganeshn/simple-maven-app'
+}
+}
+stage('Build and Test') {
+steps {
+bat 'mvn clean test'
+}
+}
+}
+}
+
+
+UPDATE THE GITHUB url TO YOUR REPOSITORY URL: 
+
+
+
+then bouild
